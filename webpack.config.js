@@ -1,5 +1,8 @@
 const path = require('path')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
+const routeApp = 'src'
 
 module.exports = {
   entry: './src/main.js',
@@ -40,11 +43,28 @@ module.exports = {
   },
   plugins: [
     // make sure to include the plugin for the magic
-    new VueLoaderPlugin()
+    new VueLoaderPlugin(),
+    new HtmlWebpackPlugin({
+      template: `${routeApp}/index.html`
+    }),
+    // new CopyWebpackPlugin([
+    //   {
+    //     from: `${routeApp}/assets`,
+    //     to: 'assets'
+    //   },
+    //   // {
+    //   //   from: `${routeApp}/css`,
+    //   //   to: 'css'
+    //   // }
+    // ])
   ],
-  resolve:{
+  resolve: {
     alias: {
       '@': path.resolve('src')
     }
+  },
+  devServer: {
+    contentBase: path.resolve(__dirname, `./${routeApp}`),
+    port: 4300
   }
 }
