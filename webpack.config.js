@@ -38,7 +38,11 @@ module.exports = {
         options: {
           name: '[name].[ext]?[hash]'
         }
-      }
+      },
+      {
+        test: /\.svg$/,
+        loader: 'vue-svg-loader',
+      },
     ]
   },
   plugins: [
