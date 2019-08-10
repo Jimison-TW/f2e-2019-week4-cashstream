@@ -6,7 +6,7 @@
     <div class="items">
       <label v-for="type in types" :key="type.name" :class="{ active: selected === type.name }">
         <input type="radio" name="type" :value="type.name" @change="setType" />
-        <i class="material-icons">{{ type.icon }}</i>
+        <icon class="material-icons" :iconName="type.icon" width="50" height="50"></icon>
         {{ type.displayName }}
       </label>
     </div>
@@ -15,11 +15,17 @@
 </template>
 
 <script>
+import Icon from '../components/Icon.vue'
+
 export default {
   data() {
     return {
-      selected: 'creditCard'
+      selected: 'creditCard',
+      test: 'credit-card'
     }
+  },
+  components: {
+    Icon
   },
   computed: {
     types() {
@@ -27,17 +33,27 @@ export default {
         {
           name: 'creditCard',
           displayName: '信用卡/金融卡',
-          icon: 'credit_card'
+          icon: 'credit-card'
+        },
+        {
+          name: 'unionPay',
+          displayName: '銀聯卡',
+          icon: 'unionpay'
         },
         {
           name: 'shop',
           displayName: '超商付款',
-          icon: 'store'
+          icon: 'shop'
         },
         {
           name: 'webAtm',
           displayName: 'Web ATM',
-          icon: 'local_atm'
+          icon: `web-atm`
+        },
+        {
+          name: 'atm',
+          displayName: 'ATM 轉帳',
+          icon: `atm`
         }
       ]
     }
