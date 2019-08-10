@@ -1,8 +1,8 @@
-const path = require('path')
-const VueLoaderPlugin = require('vue-loader/lib/plugin')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const CopyWebpackPlugin = require('copy-webpack-plugin')
-const routeApp = 'src'
+const path = require('path');
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const routeApp = 'src';
 
 module.exports = {
   entry: './src/main.js',
@@ -41,8 +41,16 @@ module.exports = {
       },
       {
         test: /\.svg$/,
-        loader: 'vue-svg-loader',
+        loader: 'vue-svg-loader'
       },
+      {
+        test: /\.scss$/,
+        use: [
+          'style-loader', // creates style nodes from JS strings
+          'css-loader', // translates CSS into CommonJS
+          'sass-loader' // compiles Sass to CSS, using Node Sass by default
+        ]
+      }
     ]
   },
   plugins: [
@@ -50,7 +58,7 @@ module.exports = {
     new VueLoaderPlugin(),
     new HtmlWebpackPlugin({
       template: `${routeApp}/index.html`
-    }),
+    })
     // new CopyWebpackPlugin([
     //   {
     //     from: `${routeApp}/assets`,
@@ -71,4 +79,4 @@ module.exports = {
     contentBase: path.resolve(__dirname, `./${routeApp}`),
     port: 4300
   }
-}
+};

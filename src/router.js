@@ -1,24 +1,60 @@
-import Vue from "vue";
-import Router from "vue-router";
-import Home from "./views/Home.vue";
+import Vue from 'vue';
+import Router from 'vue-router';
+import FirstStep from './views/FirstStep.vue';
+import SecondStep from './views/SecondStep.vue';
+import ThirdStep from './views/ThirdStep.vue';
 
 Vue.use(Router);
 
 export default new Router({
   routes: [
     {
-      path: "/",
-      name: "home",
-      component: Home
+      path: '/',
+      name: 'step1',
+      component: FirstStep
     },
-    {
-      path: "/about",
-      name: "about",
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () =>
-        import(/* webpackChunkName: "about" */ "./views/About.vue")
-    }
+    // {
+    //   path: '/step2',
+    //   name: 'step2',
+    //   component: SecondStep,
+    //   children: [
+    //     {
+    //       path: 'creditCard',
+    //       name: 'creditCard',
+    //       component: CreditCard
+    //     },
+    //     {
+    //       path: 'webAtm',
+    //       name: 'webAtm',
+    //       component: WebAtm
+    //     },
+    //     {
+    //       path: 'shop',
+    //       name: 'shop',
+    //       component: Shop
+    //     }
+    //   ]
+    // },
+    // {
+    //   path: '/step3',
+    //   name: 'step3',
+    //   component: ThirdStep,
+    //   children: [
+    //     {
+    //       path: 'finish',
+    //       name: 'finish',
+    //       component: Finish
+    //     },
+    //     {
+    //       path: 'order',
+    //       name: 'order',
+    //       component: Order
+    //     }
+    //   ]
+    // },
+    // {
+    //   path: '*',
+    //   redirect: '/'
+    // }
   ]
 });
