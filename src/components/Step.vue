@@ -10,7 +10,6 @@
 export default {
   computed: {
     step() {
-      console.log(this.$store)
       return this.$store.getters.step || 1
     },
     displayStep() {

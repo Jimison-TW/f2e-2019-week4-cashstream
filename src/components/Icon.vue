@@ -1,5 +1,5 @@
 <template>
-  <div :style="{ width: width + 'px', height: height + 'px' }">
+  <div :style="{ width: width + 'px', height: height + 'px'}">
     <component :is="currentIcon"></component>
   </div>
 </template>

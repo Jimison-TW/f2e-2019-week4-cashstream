@@ -35,11 +35,11 @@ export default {
           displayName: '信用卡/金融卡',
           icon: 'credit-card'
         },
-        {
-          name: 'unionPay',
-          displayName: '銀聯卡',
-          icon: 'unionpay'
-        },
+        // {
+        //   name: 'unionPay',
+        //   displayName: '銀聯卡',
+        //   icon: 'unionpay'
+        // },
         {
           name: 'shop',
           displayName: '超商付款',
@@ -50,11 +50,11 @@ export default {
           displayName: 'Web ATM',
           icon: `web-atm`
         },
-        {
-          name: 'atm',
-          displayName: 'ATM 轉帳',
-          icon: `atm`
-        }
+        // {
+        //   name: 'atm',
+        //   displayName: 'ATM 轉帳',
+        //   icon: `atm`
+        // }
       ]
     }
   },
